@@ -286,20 +286,7 @@ app.post('/api/posts', auth.ensureAuthenticated, postsCtrl.create);
 ```
 </details>
 
-#### 2.2 Hiding Buttons from Visitors (Client)
-* Only _logged in_ users should be able to see buttons for `new`, `edit`, and `delete`.
-  - `ng-show="main.currentUser.isLoggedIn()"`
-* **BONUS**: Only the _owner_ of the blog post should see options to `edit` and `delete` the post.
-  - Given that you have access to a `post` object, and the `currentUser` object, inside your controllers, is there a way to determine ownership?
-
-<details>
-<summary>Ownership Hint (Click Here)</summary>
-```js
-someCtrl.post.user._id === main.currentUser.user_id; // watch out for undefined!
-```
-</details>
-
-#### 2.3 Protecting Client Routes (Client)
+#### 2.2 Protecting Client Routes (Client)
 * Only a logged in user should be able to visit pages for `new` and `edit`.
   - You will want to use `loginRequired` (see `public/scripts/routes.js`) in the route to ensure that only a logged in user can go to `new` and `edit` pages.
 
@@ -319,6 +306,25 @@ someCtrl.post.user._id === main.currentUser.user_id; // watch out for undefined!
 ```
 </details>
 
+#### 2.3 Hiding Buttons from Visitors (Client)
+* Only _logged in_ users should be able to see buttons for `new`, `edit`, and `delete`.
+
+<details>
+<summary>Button for Logged In Users Hint (Click Here)</summary>
+```js
+ng-show="main.currentUser.isLoggedIn()"
+```
+</details>
+
+* **BONUS**: (Please run `node seed.js` to wipe your database). Only the _owner_ of the blog post should see options to `edit` and `delete` the post.
+  - Given that you have access to a `post` object, and the `currentUser` object, inside your controllers, is there a way to determine ownership?
+
+<details>
+<summary>Ownership Hint (Click Here)</summary>
+```js
+someCtrl.post.user._id === main.currentUser.user_id; // watch out for undefined!
+```
+</details>
 
 ## Bonuses
 1. Refactor to use a PostService (or a `Post` resource using `ngResource`), and inject your service into each of your post controllers.
