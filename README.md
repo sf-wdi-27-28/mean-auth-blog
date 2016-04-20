@@ -109,7 +109,7 @@ function PostsNewController ($location, $http) {
     * and a button to `edit`
       * and be redirected to `/posts/12345/edit` 
     * and a button to `delete`
-      * and should trigger a `on-click="postsShowCtrl.destroy()"` method on the `button`(!)
+      * and should trigger a `ng-click="postsShowCtrl.destroy()"` method on the `button`(!)
       * and the `destroy()` methods should make an `$http` request to `DELETE /api/posts/12345`
       * and on success, be redirected to `/` or `/posts` (posts index).
       * BONUS: and see the message "Successfully deleted post" below the navbar.
@@ -169,7 +169,7 @@ function PostsShowController ($location, $http, $routeParams) {
       * and the `update()` method should make an `$http` request to the server, using the data in `vm.post`
       * and on success, be redirected to `/posts/12345` (show).
     * and a button to `Delete Post`
-      * that should trigger a `on-click="postsEditCtrl.destroy()"` on the `button`
+      * that should trigger a `ng-click="postsEditCtrl.destroy()"` on the `button`
       * and the `destroy()` method should make an `$http` delete request to the server
       * and on success, redirect the user to `/` or `/posts` (index)
       * BONUS: and a pop-up, confirmation dialog that says "Are you sure you want to delete this post?"
