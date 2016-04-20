@@ -50,7 +50,7 @@ To begin, let's create a new angular controller, template, and route for creatin
       * and a field for `content` (use `ng-model="postsNewCtrl.post.content"`)
       * and a button to "save".
   * When a user clicks "save" (having filled out the form)...
-    * they should trigger a `on-submit="postsNewCtrl.create()"` method on the `form`(!)
+    * they should trigger a `ng-submit="postsNewCtrl.create()"` method on the `form`(!)
     * and the `create()` method should make an $http request to `POST /api/posts` using the data in `vm.post`.
     * and their post should be saved to the database
     * and the server should respond with the newly created post and `_id` (e.g. 12345)
@@ -165,7 +165,7 @@ function PostsShowController ($location, $http, $routeParams) {
       * and be redirected to `/posts/12345`
       * BONUS: and a pop-up, confirmation dialog that says "Are you sure you want to discard your changes?"
     * and a button to `Save Changes`
-      * that should trigger a `on-submit="postsEditCtrl.update()"` on the `form`(!)
+      * that should trigger a `ng-submit="postsEditCtrl.update()"` on the `form`(!)
       * and the `update()` method should make an `$http` request to the server, using the data in `vm.post`
       * and on success, be redirected to `/posts/12345` (show).
     * and a button to `Delete Post`
