@@ -52,11 +52,13 @@ function configRoutes($routeProvider, $locationProvider) {
     .otherwise({redirectTo: '/'});
 
 
-    function skipIfLoggedIn($q, $auth) {
-      return $auth.isAuthenticated();
+    function skipIfLoggedIn($location, $auth) {
+      if ($auth.isAuthenticated()) {
+        $location.path('/');
+      }
     }
 
-    function loginRequired($q, $location, $auth) {
+    function loginRequired($location, $auth) {
       if (!$auth.isAuthenticated()) {
         $location.path('/login');
       }
