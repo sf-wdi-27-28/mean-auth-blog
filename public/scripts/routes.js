@@ -11,7 +11,7 @@ function configRoutes($routeProvider, $locationProvider) {
     .when('/', {
       templateUrl: 'templates/posts/index.html',
       controller: 'PostsIndexController',
-      controllerAs: 'home'
+      controllerAs: 'postsIndexCtrl'
     })
     .when('/signup', {
       templateUrl: 'templates/user/signup.html',
@@ -47,7 +47,7 @@ function configRoutes($routeProvider, $locationProvider) {
     .when('/posts', {
       templateUrl: 'templates/posts/index.html',
       controller: 'PostsIndexController',
-      controllerAs: 'home'
+      controllerAs: 'postsIndexCtrl'
     })
     .otherwise({redirectTo: '/'});
 
